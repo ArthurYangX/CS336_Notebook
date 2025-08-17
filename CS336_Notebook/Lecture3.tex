@@ -1,0 +1,78 @@
+\setchapterabstract{本讲回顾了 Transformer 及其 modern variants，重点讨论 normalization (Pre-norm, RMSNorm)、activation functions (ReLU, GeLU, SwiGLU)、position embeddings (absolute, relative, RoPE)，并总结 hyperparameter choices、training stability tricks 以及 attention variants (MQA, GQA, sparse attention)。}
+
+\vspace{-10cm}
+\chapter{Architectures variations \& Hyperparameters \& Stability tricks}
+
+\vspace{-2cm}
+
+%%%%%%INSERT TOC BELOW 1ST SECTION%%%%%%%%%%%%
+
+{\chaptoc\noindent\begin{minipage}[inner sep=0,outer sep=0]{0.9\linewidth}\section{The Original Transformer \& Modern Variants}\end{minipage}}
+\\
+
+\subsection{Review of the Original Transformer}
+
+\subsection{Normalization Variants}
+
+\subsection{Activation Variants}
+
+\subsection{Serial vs. Parallel layers}
+
+\subsection{RoPE: Rotary Position Embeddings}
+
+
+
+
+\clearpage
+{\chaptoc\noindent\begin{minipage}[inner sep=0,outer sep=0]{0.9\linewidth}\section{Hyperparameters}\end{minipage}}
+\\
+
+\subsection{Feedforward Dimension Ratio}
+
+\subsection{Head Dimension and Model Dimension}
+
+\subsection{Aspect Ratio}
+
+\subsection{Vocabulary Size}
+
+\subsection{Regularization}
+
+
+
+\clearpage
+{\chaptoc\noindent\begin{minipage}[inner sep=0,outer sep=0]{0.9\linewidth}\section{Stability tricks}\end{minipage}}
+\\
+
+\subsection{Output Softmax Stability}
+
+\subsection{Attention Softmax Stability}
+
+\subsection{Logit Soft-Capping}
+
+
+
+\clearpage
+{\chaptoc\noindent\begin{minipage}[inner sep=0,outer sep=0]{0.9\linewidth}\section{Attention Heads}\end{minipage}}
+\\
+
+\subsection{Grouped-Query Attention \& Multi-Query Attention}
+
+\subsection{Sparse/Sliding Window Attention}
+
+\subsection{Hybrid Approaches}
+
+% 图 1：OPT FLOPs 构成
+% \MarginImageWithNote
+%   {figs/}
+%   {\captionof{figure}{}}
+%   {
+%   }
+
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[width=1\linewidth]{figs/lec1/.png}
+%   \caption{}
+%   \label{fig:}
+% \end{figure}
+
+
