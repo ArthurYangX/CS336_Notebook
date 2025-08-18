@@ -322,6 +322,7 @@
 \@writefile{toc}{\contentsline {paragraph}{流程说明。}{62}{lstnumber.-25.33}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2.7}Checkpointing (Save/Load)}{63}{section.2.7}\protected@file@percent }
 \@writefile{toc}{\contentsline {paragraph}{要点与实践提示。}{63}{lstnumber.-26.21}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Modern Models' Architecture}}{65}{figure.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Architectures variations \& Hyperparameters \& Stability tricks}{65}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -331,32 +332,40 @@
 \newmarginnote{note.65.1}{{65}{2752512sp}}
 \@writefile{toc}{\contentsline {section}{\numberline {3.1}The Original Transformer \& Modern Variants}{65}{section.3.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Review of the Original Transformer}{65}{subsection.3.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Normalization Variants}{65}{subsection.3.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Activation Variants}{65}{subsection.3.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Serial vs. Parallel layers}{65}{subsection.3.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.5}RoPE: Rotary Position Embeddings}{65}{subsection.3.1.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces The original Transformer architecture}}{65}{figure.caption.45}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Pre-norm vs. Post-norm in Transformer}}{66}{figure.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Normalization Variants}{66}{subsection.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Pre-norm vs. Post-norm}{66}{section*.46}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces \relax }}{66}{figure.caption.47}\protected@file@percent }
+\newlabel{fig:}{{3.4}{66}{\relax }{figure.caption.47}{}}
+\newlabel{fig:@cref}{{[figure][4][3]3.4}{[1][66][]66}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Double Norm}{66}{figure.caption.47}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{LayerNorm vs. RMSNorm}{66}{figure.caption.47}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Activation Variants}{66}{subsection.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Serial vs. Parallel layers}{66}{subsection.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.5}RoPE: Rotary Position Embeddings}{66}{subsection.3.1.5}\protected@file@percent }
 \ttl@writefile{ptc}{\ttl@stoptoc{chapters@11}}
 \ttl@writefile{ptc}{\ttl@starttoc{chapters@12}}
-\newmarginnote{note.66.1}{{66}{13468164sp}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Hyperparameters}{66}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Feedforward Dimension Ratio}{66}{subsection.3.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Head Dimension and Model Dimension}{66}{subsection.3.2.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Aspect Ratio}{66}{subsection.3.2.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Vocabulary Size}{66}{subsection.3.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Regularization}{66}{subsection.3.2.5}\protected@file@percent }
+\newmarginnote{note.67.1}{{67}{2752512sp}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Hyperparameters}{67}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Feedforward Dimension Ratio}{67}{subsection.3.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Head Dimension and Model Dimension}{67}{subsection.3.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Aspect Ratio}{67}{subsection.3.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Vocabulary Size}{67}{subsection.3.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Regularization}{67}{subsection.3.2.5}\protected@file@percent }
 \ttl@writefile{ptc}{\ttl@stoptoc{chapters@12}}
 \ttl@writefile{ptc}{\ttl@starttoc{chapters@13}}
-\newmarginnote{note.67.1}{{67}{2752512sp}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Stability tricks}{67}{section.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Output Softmax Stability}{67}{subsection.3.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Attention Softmax Stability}{67}{subsection.3.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Logit Soft-Capping}{67}{subsection.3.3.3}\protected@file@percent }
+\newmarginnote{note.68.1}{{68}{13468164sp}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Stability tricks}{68}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Output Softmax Stability}{68}{subsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Attention Softmax Stability}{68}{subsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Logit Soft-Capping}{68}{subsection.3.3.3}\protected@file@percent }
 \ttl@writefile{ptc}{\ttl@stoptoc{chapters@13}}
 \ttl@writefile{ptc}{\ttl@starttoc{chapters@14}}
-\newmarginnote{note.68.1}{{68}{13468164sp}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Attention Heads}{68}{section.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Grouped-Query Attention \& Multi-Query Attention}{68}{subsection.3.4.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Sparse/Sliding Window Attention}{68}{subsection.3.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Hybrid Approaches}{68}{subsection.3.4.3}\protected@file@percent }
+\newmarginnote{note.69.1}{{69}{2752512sp}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Attention Heads}{69}{section.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Grouped-Query Attention \& Multi-Query Attention}{69}{subsection.3.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Sparse/Sliding Window Attention}{69}{subsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.3}Hybrid Approaches}{69}{subsection.3.4.3}\protected@file@percent }
 \ttl@finishall
-\gdef \@abspage@last{68}
+\gdef \@abspage@last{69}

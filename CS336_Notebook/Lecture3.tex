@@ -12,7 +12,73 @@
 
 \subsection{Review of the Original Transformer}
 
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}{0.45\linewidth}
+    \includegraphics[width=\linewidth]{figs/lec3/lec3.01.png}
+    \caption{The original Transformer architecture}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.5\linewidth}
+    \small
+    在Original Transformer Architecture中，我们在选择以下方式来构建Architecture
+    \begin{itemize}
+    \item \textbf{Norm Type}: Post-norm, LayerNorm
+    \item \textbf{FFN Type}: ReLU \\
+        \[
+        \text{FFN}(z_i) = \text{ReLU}(z_i W_1 + b_1) W_2 + b_2
+        \]
+    \item \textbf{Position Embedding}: sines and cosines \\
+    \begin{align*}
+     &\mathrm{PE}(pos,\, 2i)   = \sin \Bigl( pos \,/\, 10000^{\,2i / d_{\mathit{model}}} \Bigr)\\
+     &\mathrm{PE}(pos,\, 2i+1) = \cos \Bigl( pos \,/\, 10000^{\,2i / d_{\mathit{model}}} \Bigr)
+    \end{align*}
+    
+    \end{itemize}
+    而这些有许多变体，接下来我们会逐一介绍:
+    \begin{itemize}
+        \item Pre-norm vs. Post-norm
+        \item LayerNorm vs. RMSNorm
+        \item ReLU, GeLU, *GLU, SwiGLU
+        \item Serial vs. Parallel layers
+        \item Relative Position Embeddings vs. Absolute Position Embeddings
+    \end{itemize}
+  \end{minipage}
+\end{figure}
+
+
+\MarginImageWithNote
+  {figs/lec3/lec3.02.png}
+  {\captionof{figure}{Modern Models' Architecture}}
+
+
+\clearpage
 \subsection{Normalization Variants}
+\subsubsection{Pre-norm vs. Post-norm}~{}
+\\
+\MarginImageWithNote
+  {figs/lec3/lec3.02.png}
+  {\captionof{figure}{Pre-norm vs. Post-norm in Transformer}}
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1\linewidth]{figs/lec3/lec3.04.png}
+  \caption{}
+  \label{fig:}
+\end{figure}
+
+
+
+
+
+\subsubsection{Double Norm}
+
+\subsubsection{LayerNorm vs. RMSNorm}
+
+
+
+
 
 \subsection{Activation Variants}
 
@@ -23,9 +89,34 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \clearpage
 {\chaptoc\noindent\begin{minipage}[inner sep=0,outer sep=0]{0.9\linewidth}\section{Hyperparameters}\end{minipage}}
 \\
+
 
 \subsection{Feedforward Dimension Ratio}
 
