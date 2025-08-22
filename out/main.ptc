@@ -10,18 +10,18 @@
 \ttl@starttoc {chapters@3}
 \contentsline {section}{\numberline {1.3}Course Components}{5}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}Basics}{6}{subsection.1.3.1}%
-\contentsline {subsubsection}{Tokenization}{6}{section*.2}%
+\contentsline {subsubsection}{Tokenization}{6}{subsection.1.3.1}%
 \contentsline {subsubsection}{Architecture}{6}{tcb@cnt@Definition.2}%
 \contentsline {subsubsection}{Training}{6}{figure.1.5}%
 \contentsline {subsection}{\numberline {1.3.2}Systems}{7}{subsection.1.3.2}%
-\contentsline {subsubsection}{Kernels}{7}{section*.3}%
-\contentsline {subsubsection}{Parallelism}{8}{figure.caption.4}%
-\contentsline {subsubsection}{Inference}{8}{figure.caption.4}%
+\contentsline {subsubsection}{Kernels}{7}{subsection.1.3.2}%
+\contentsline {subsubsection}{Parallelism}{8}{figure.caption.2}%
+\contentsline {subsubsection}{Inference}{8}{figure.caption.2}%
 \contentsline {subsection}{\numberline {1.3.3}Scaling Laws}{9}{subsection.1.3.3}%
 \contentsline {subsection}{\numberline {1.3.4}Data}{9}{subsection.1.3.4}%
-\contentsline {subsubsection}{Evaluation}{9}{figure.caption.6}%
-\contentsline {subsubsection}{Data curation}{10}{figure.caption.6}%
-\contentsline {subsubsection}{Data processing}{10}{figure.caption.6}%
+\contentsline {subsubsection}{Evaluation}{9}{figure.caption.4}%
+\contentsline {subsubsection}{Data curation}{10}{figure.caption.4}%
+\contentsline {subsubsection}{Data processing}{10}{figure.caption.4}%
 \contentsline {subsection}{\numberline {1.3.5}Alignment}{10}{subsection.1.3.5}%
 \contentsline {paragraph}{Supervised Fine-Tuning (SFT)}{10}{figure.1.11}%
 \contentsline {paragraph}{Learning from Feedback}{11}{figure.1.11}%
@@ -50,8 +50,8 @@
 \ttl@stoptoc {chapters@5}
 \ttl@starttoc {chapters@6}
 \contentsline {subsection}{\numberline {2.1.1}Input Embedding}{21}{subsection.2.1.1}%
-\contentsline {subsubsection}{Tokenization}{21}{figure.caption.11}%
-\contentsline {subsubsection}{Embedding}{21}{figure.caption.11}%
+\contentsline {subsubsection}{Tokenization}{21}{figure.caption.9}%
+\contentsline {subsubsection}{Embedding}{21}{figure.caption.9}%
 \contentsline {paragraph}{1. Static Token Embeddings vs. Contextualized Embeddings}{21}{tcb@cnt@Definition.4}%
 \contentsline {paragraph}{2. Text and Sentence Embeddings}{22}{figure.2.4}%
 \contentsline {paragraph}{3. Word2Vec}{22}{tcb@cnt@Definition.5}%
@@ -59,21 +59,21 @@
 \contentsline {paragraph}{1.固定正余弦位置编码（Vaswani原版）}{23}{subsection.2.1.2}%
 \contentsline {paragraph}{2.可学习位置编码}{23}{Item.23}%
 \contentsline {subsection}{\numberline {2.1.3}Encoder 结构}{24}{subsection.2.1.3}%
-\contentsline {subsubsection}{多头自注意机制}{24}{figure.caption.15}%
+\contentsline {subsubsection}{多头自注意机制}{24}{figure.caption.13}%
 \contentsline {paragraph}{Step0:进行Self-Attention之前的输入和投影矩阵}{26}{equation.2.1}%
-\contentsline {paragraph}{Step1:根据投影矩阵更新$Q$,$K$,$V$}{27}{figure.caption.18}%
-\contentsline {paragraph}{Step2:计算相关性分数并进行Softmax归一化}{28}{figure.caption.19}%
+\contentsline {paragraph}{Step1:根据投影矩阵更新$Q$,$K$,$V$}{27}{figure.caption.16}%
+\contentsline {paragraph}{Step2:计算相关性分数并进行Softmax归一化}{28}{figure.caption.17}%
 \contentsline {paragraph}{Step3:用注意力权重对$𝑉$权求和，得到输出}{29}{tcb@cnt@Definition.7}%
-\contentsline {paragraph}{Step4: 多头注意力的输出合并}{30}{figure.caption.21}%
+\contentsline {paragraph}{Step4: 多头注意力的输出合并}{30}{figure.caption.19}%
 \contentsline {paragraph}{Step5: Add \& Norm}{31}{Item.30}%
 \contentsline {subparagraph}{Layer Normalization}{31}{Item.30}%
-\contentsline {subparagraph}{Residual Connection}{32}{figure.caption.23}%
+\contentsline {subparagraph}{Residual Connection}{32}{figure.caption.21}%
 \contentsline {subsubsection}{Point-wise Feed-Forward Network}{33}{tcb@cnt@Definition.8}%
 \contentsline {subsection}{\numberline {2.1.4}Decoder 结构}{34}{subsection.2.1.4}%
-\contentsline {subsubsection}{Masked Multi-Head Self-Attention}{34}{section*.27}%
-\contentsline {subsubsection}{Encoder-Decoder Attention(cross-attention)}{35}{figure.caption.29}%
-\contentsline {subsubsection}{Encoder-Decoder Attention (Cross-Attention)}{35}{figure.caption.29}%
-\contentsline {subsubsection}{训练与推理差异}{35}{figure.caption.30}%
+\contentsline {subsubsection}{Masked Multi-Head Self-Attention}{34}{subsection.2.1.4}%
+\contentsline {subsubsection}{Encoder-Decoder Attention(cross-attention)}{35}{figure.caption.26}%
+\contentsline {subsubsection}{Encoder-Decoder Attention (Cross-Attention)}{35}{figure.caption.26}%
+\contentsline {subsubsection}{训练与推理差异}{35}{figure.caption.27}%
 \contentsline {subsection}{\numberline {2.1.5}Output Projection \& Softmax}{36}{subsection.2.1.5}%
 \ttl@stoptoc {chapters@6}
 \ttl@starttoc {chapters@7}
@@ -86,23 +86,23 @@
 \contentsline {subsubsection}{fp8}{40}{figure.2.30}%
 \contentsline {subsection}{\numberline {2.2.3}Mixed Precision Training \href {https://arxiv.org/pdf/1710.03740.pdf}{[Micikevicius et al., 2017]}}{41}{subsection.2.2.3}%
 \contentsline {paragraph}{技术背景}{41}{subsection.2.2.3}%
-\contentsline {paragraph}{核心挑战——FP16的低精度和Narrow dynamic range:}{41}{figure.caption.37}%
-\contentsline {paragraph}{技术路径}{42}{figure.caption.37}%
+\contentsline {paragraph}{核心挑战——FP16的低精度和Narrow dynamic range:}{41}{figure.caption.34}%
+\contentsline {paragraph}{技术路径}{42}{figure.caption.34}%
 \contentsline {subparagraph}{FP32 Master Copy of Weights}{42}{Item.37}%
-\contentsline {subparagraph}{Loss Scaling}{42}{figure.caption.38}%
-\contentsline {subparagraph}{Arithmetic Precision}{43}{figure.caption.39}%
-\contentsline {subparagraph}{AMP: Automatic Mixed Precision}{43}{figure.caption.40}%
+\contentsline {subparagraph}{Loss Scaling}{42}{figure.caption.35}%
+\contentsline {subparagraph}{Arithmetic Precision}{43}{figure.caption.36}%
+\contentsline {subparagraph}{AMP: Automatic Mixed Precision}{43}{figure.caption.37}%
 \ttl@stoptoc {chapters@7}
 \ttl@starttoc {chapters@8}
 \contentsline {section}{\numberline {2.3}Compute Accounting}{44}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Tensors On Gpus}{44}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Tensor Operations}{45}{subsection.2.3.2}%
-\contentsline {subsubsection}{Tensor Storage}{45}{section*.42}%
+\contentsline {subsubsection}{Tensor Storage}{45}{subsection.2.3.2}%
 \contentsline {subsubsection}{Tensor Slicing}{45}{lstnumber.-2.11}%
 \contentsline {subsubsection}{Elementwise Operations}{46}{lstnumber.-3.37}%
 \contentsline {subsubsection}{Matrix Multiplication}{46}{lstnumber.-4.15}%
 \contentsline {subsection}{\numberline {2.3.3}Tensor Einops}{48}{subsection.2.3.3}%
-\contentsline {subsubsection}{Einops: Motivation}{48}{section*.44}%
+\contentsline {subsubsection}{Einops: Motivation}{48}{subsection.2.3.3}%
 \contentsline {subsubsection}{Jaxtyping: Basics}{48}{lstnumber.-6.4}%
 \contentsline {subsubsection}{Einsum = Named MatMul with Bookkeeping}{48}{lstnumber.-7.6}%
 \contentsline {subsubsection}{Einops: Reduce (聚合)}{49}{lstnumber.-8.17}%
@@ -157,30 +157,43 @@
 \contentsline {section}{\numberline {3.1}The Original Transformer \& Modern Variants}{65}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}Review of the Original Transformer}{65}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Normalization Variants}{66}{subsection.3.1.2}%
-\contentsline {subsubsection}{Pre-norm vs. Post-norm}{66}{section*.46}%
-\contentsline {subsubsection}{Double Norm}{66}{figure.caption.47}%
-\contentsline {subsubsection}{LayerNorm vs. RMSNorm}{66}{figure.caption.47}%
-\contentsline {subsection}{\numberline {3.1.3}Activation Variants}{66}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Serial vs. Parallel layers}{66}{subsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.1.5}RoPE: Rotary Position Embeddings}{66}{subsection.3.1.5}%
+\contentsline {subsubsection}{Pre-norm vs. Post-norm in Transformer}{66}{figure.3.3}%
+\contentsline {paragraph}{1. Pre-LayerNorm 可以去除模型对于warm-up阶段的依赖}{66}{figure.caption.41}%
+\contentsline {paragraph}{2. Pre-LayerNorm 可以缓解梯度爆炸问题}{68}{tcb@cnt@Proposition.1}%
+\contentsline {paragraph}{3. Pre-LayerNorm 可以提高整体的稳定性并提高Learning Rate加速收敛}{68}{figure.caption.44}%
+\contentsline {subsubsection}{Double Norm}{69}{figure.caption.45}%
+\contentsline {subsubsection}{LayerNorm vs. RMSNorm}{70}{figure.caption.46}%
+\contentsline {subsection}{\numberline {3.1.3}Activation Variants}{72}{subsection.3.1.3}%
+\contentsline {paragraph}{A few of the common activations}{72}{subsection.3.1.3}%
+\contentsline {paragraph}{Gated activations(*GLU)}{72}{AMS.51}%
+\contentsline {subsection}{\numberline {3.1.4}Serial vs. Parallel layers}{73}{subsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.1.5}RoPE: Rotary Position Embeddings}{74}{subsection.3.1.5}%
+\contentsline {paragraph}{A few of commom embeddings}{74}{subsection.3.1.5}%
+\contentsline {paragraph}{High level thought process: Relativity }{74}{subsection.3.1.5}%
+\contentsline {paragraph}{RoPE: rotary position embeddings}{75}{subsection.3.1.5}%
+\contentsline {subsubsection}{General form}{76}{figure.caption.53}%
+\contentsline {subsection}{\numberline {3.1.6}Properties of RoPE}{77}{subsection.3.1.6}%
+\contentsline {paragraph}{长程衰减 (Long-term decay).}{77}{subsection.3.1.6}%
+\contentsline {paragraph}{结合线性注意力 (RoPE with linear attention).}{77}{subsection.3.1.6}%
+\contentsline {paragraph}{说明.}{77}{equation.3.4}%
 \ttl@stoptoc {chapters@11}
 \ttl@starttoc {chapters@12}
-\contentsline {section}{\numberline {3.2}Hyperparameters}{67}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Feedforward Dimension Ratio}{67}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Head Dimension and Model Dimension}{67}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Aspect Ratio}{67}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Vocabulary Size}{67}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Regularization}{67}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.2}Hyperparameters}{78}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Feedforward Dimension Ratio}{78}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Head Dimension and Model Dimension}{78}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Aspect Ratio}{78}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Vocabulary Size}{78}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Regularization}{78}{subsection.3.2.5}%
 \ttl@stoptoc {chapters@12}
 \ttl@starttoc {chapters@13}
-\contentsline {section}{\numberline {3.3}Stability tricks}{68}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Output Softmax Stability}{68}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Attention Softmax Stability}{68}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Logit Soft-Capping}{68}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.3}Stability tricks}{79}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Output Softmax Stability}{79}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Attention Softmax Stability}{79}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Logit Soft-Capping}{79}{subsection.3.3.3}%
 \ttl@stoptoc {chapters@13}
 \ttl@starttoc {chapters@14}
-\contentsline {section}{\numberline {3.4}Attention Heads}{69}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Grouped-Query Attention \& Multi-Query Attention}{69}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Sparse/Sliding Window Attention}{69}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Hybrid Approaches}{69}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.4}Attention Heads}{80}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Grouped-Query Attention \& Multi-Query Attention}{80}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Sparse/Sliding Window Attention}{80}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Hybrid Approaches}{80}{subsection.3.4.3}%
 \contentsfinish 
