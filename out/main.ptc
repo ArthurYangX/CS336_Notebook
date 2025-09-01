@@ -180,20 +180,51 @@
 \ttl@starttoc {chapters@12}
 \contentsline {section}{\numberline {3.2}Hyperparameters}{78}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Feedforward Dimension Ratio}{78}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Head Dimension and Model Dimension}{78}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Aspect Ratio}{78}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Vocabulary Size}{78}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Regularization}{78}{subsection.3.2.5}%
+\contentsline {subsubsection}{Exception 1 - GLU variants}{78}{equation.3.5}%
+\contentsline {subsubsection}{Exception 2 - T5}{79}{figure.caption.54}%
+\contentsline {subsection}{\numberline {3.2.2}Head Dimension, Heads number and Model Dimension}{80}{subsection.3.2.2}%
+\contentsline {paragraph}{计算上的直观理解.}{80}{subsection.3.2.2}%
+\contentsline {paragraph}{Head-dim 与 Model-dim 的比率.}{80}{subsection.3.2.2}%
+\contentsline {paragraph}{为何不是必须？}{80}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Aspect Ratio}{81}{subsection.3.2.3}%
+\contentsline {paragraph}{直观理解.}{81}{figure.3.24}%
+\contentsline {subsection}{\numberline {3.2.4}Vocabulary Size}{82}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Regularization}{82}{subsection.3.2.5}%
+\contentsline {paragraph}{Dropout and weigty decay in practice}{82}{tcb@cnt@Definition.23}%
 \ttl@stoptoc {chapters@12}
 \ttl@starttoc {chapters@13}
-\contentsline {section}{\numberline {3.3}Stability tricks}{79}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Output Softmax Stability}{79}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Attention Softmax Stability}{79}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Logit Soft-Capping}{79}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.3}Stability tricks}{84}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Output Softmax Stability}{84}{subsection.3.3.1}%
+\contentsline {paragraph}{原因分析.}{84}{subsection.3.3.1}%
+\contentsline {paragraph}{缓解方法.}{85}{subsection.3.3.1}%
+\contentsline {subparagraph}{Softmax 定义.}{85}{subsection.3.3.1}%
+\contentsline {subparagraph}{取对数.}{85}{subsection.3.3.1}%
+\contentsline {subparagraph}{原始损失函数.}{85}{subsection.3.3.1}%
+\contentsline {subparagraph}{加入正则项.}{85}{subsection.3.3.1}%
+\contentsline {subparagraph}{推导流程图.}{85}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Attention Softmax Stability - the QK norm}{86}{subsection.3.3.2}%
+\contentsline {paragraph}{\textbf {Motivation}}{86}{subsection.3.3.2}%
+\contentsline {paragraph}{Query-Key Normalization(QK-Norm)}{86}{subsection.3.3.2}%
+\contentsline {paragraph}{With QK-Norm}{86}{subsection.3.3.2}%
+\contentsline {paragraph}{Difference with Usual Normalization.}{87}{figure.caption.63}%
+\contentsline {subsection}{\numberline {3.3.3}Logit Soft-Capping}{87}{subsection.3.3.3}%
+\contentsline {subparagraph}{Effect on Attention.}{87}{tcb@cnt@Definition.26}%
+\contentsline {subparagraph}{Comparison with QK-Norm.}{88}{tcb@cnt@Definition.26}%
 \ttl@stoptoc {chapters@13}
 \ttl@starttoc {chapters@14}
-\contentsline {section}{\numberline {3.4}Attention Heads}{80}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Grouped-Query Attention \& Multi-Query Attention}{80}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Sparse/Sliding Window Attention}{80}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Hybrid Approaches}{80}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.4}Attention Heads}{89}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Grouped-Query Attention \& Multi-Query Attention}{89}{subsection.3.4.1}%
+\contentsline {paragraph}{Motivation.}{89}{subsection.3.4.1}%
+\contentsline {paragraph}{Arithmetic Intensity.}{89}{figure.caption.64}%
+\contentsline {subparagraph}{Arithmetic Operations.}{90}{tcb@cnt@Proposition.2}%
+\contentsline {subparagraph}{Memory Accesses.}{90}{tcb@cnt@Proposition.2}%
+\contentsline {subparagraph}{Conclusion.}{90}{tcb@cnt@Proposition.2}%
+\contentsline {subparagraph}{Challenge.}{91}{tcb@cnt@Proposition.2}%
+\contentsline {subparagraph}{Solution: KV Cache.}{91}{tcb@cnt@Proposition.2}%
+\contentsline {subparagraph}{Summary.}{91}{tcb@cnt@Proposition.2}%
+\contentsline {paragraph}{MQA（Multi-Query Attention）}{92}{figure.caption.65}%
+\contentsline {subparagraph}{MQA 的思想}{92}{figure.caption.66}%
+\contentsline {paragraph}{GQA（Grouped-Query Attention）—按 slide 的总量}{93}{figure.caption.66}%
+\contentsline {subsection}{\numberline {3.4.2}Sparse/Sliding Window Attention}{94}{subsection.3.4.2}%
+\contentsline {paragraph}{Current standard trick - interleave 'full' and 'LR' attention.}{95}{figure.caption.69}%
 \contentsfinish 

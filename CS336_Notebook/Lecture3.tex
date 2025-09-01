@@ -354,6 +354,15 @@ Most modern Transformers omit explicit bias terms.
 
 \paragraph{Gated activations(*GLU)}~{}
 
+\MarginNote{
+\textbf{Gated FFN 参数量解释：}\\[0.3em]
+普通 FFN: 
+$d_{\mathrm{model}} \!\to\! d_{\mathrm{ff}} \!\to\! d_{\mathrm{model}}$。\\
+Gated FFN: 
+需要两条分支，若仍用原始 $d_{\mathrm{ff}}$，参数量几乎翻倍。\\[0.3em]
+解决方法：把每条分支的维度设为原来的 $\tfrac{2}{3}d_{\mathrm{ff}}$。这样两条分支加起来的参数量 $\approx$ 原始 FFN，但通过门控乘法获得更强表达能力。
+}
+
 GLU-style activations replace this with a gated version:
 \[
   {\color{tred}{\max(0,\,xW_1)}} 
@@ -771,35 +780,456 @@ k^{(2)}_n
 
 \subsection{Feedforward Dimension Ratio}
 
+There are two dimensions that are relevant -- the Feedforward dimension $(d_{\mathrm{ff}})$ and the model dimension $(d_{\mathrm{model}})$.
+    
+\begin{equation}
+\mathrm{FFN}_{\mathrm{ReLU}}(x, W_1, W_2, b_1, b_2) 
+= \max(0,\, xW_1+b_1)\,W_2 + b_2,
+\end{equation}
+其中各个部分与 $d_{\mathrm{model}}$ 和 $d_{\mathrm{ff}}$ 的关系如下：
+
+\begin{itemize}
+  \item 输入向量 $x \in \mathbb{R}^{d_{\mathrm{model}}}$。
+  \item $W_1 \in \mathbb{R}^{d_{\mathrm{model}} \times d_{\mathrm{ff}}}$：把维度从 $d_{\mathrm{model}}$ 投影到 $d_{\mathrm{ff}}$。
+  \item $b_1 \in \mathbb{R}^{d_{\mathrm{ff}}}$：对应的偏置。
+  \item $\max(0,\cdot)$：ReLU 激活，$\mathbb{R}^{d_{\mathrm{model}}}$ $\rightarrow$ $\mathbb{R}^d_{\mathrm{ff}}$。
+  \item $W_2 \in \mathbb{R}^{d_{\mathrm{ff}} \times d_{\mathrm{model}}}$：把维度从 $d_{\mathrm{ff}}$ 投影回 $d_{\mathrm{model}}$。
+  \item $b_2 \in \mathbb{R}^{d_{\mathrm{model}}}$：对应的偏置。
+  \item 最终输出 $\in \mathbb{R}^{d_{\mathrm{model}}}$，与输入维度相同，方便残差连接。
+\end{itemize}
+
+因此，$d_{\mathrm{model}}$ 决定了模型表示的基本维度，而 $d_{\mathrm{ff}}$ 决定了前馈层的中间容量.
+通常来说：
+
+\textbf{\[
+d_{\mathrm{ff}} = 4 d_{\mathrm{model}}
+\]}
+
+但也有一些例外：
+\subsubsection{Exception 1 - GLU variants}~{}
+
+在GLU这一部分，我们有提到过，为了保证整体的参数量与Not Gated FFN一致，所以$d_{\mathrm{ff-GLU}} = \frac{2}{3} d_{\mathrm{ff}}$
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.65\linewidth]{figs/lec3/lec3.20.png}
+  \captionof{figure}{Examples of GLU Dimensions}
+\end{figure}
+
+Models are roughly in this range, though PaLM, LLaMA2 and Mistral are slightly larger.
+
+\subsubsection{Exception 2 - T5}~{}
+
+绝大部分LLM的参数都比较相似，除了T5，它有着很大胆的设置。
+
+在他们的11B模型中，他们设置：
+\begin{align*}
+  d_{ff} &= 65536\\
+  d_{model} &= 1024
+\end{align*}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figs/lec3/lec3.21.png}
+  \captionof{figure}{Reason for the 64-multipliers in T-5 Model}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figs/lec3/lec3.22.png}
+  \captionof{figure}{The range of the ratio}
+\end{figure}
+
+\textbf{这个比例通常在4左右}
+
+
+\clearpage
+\subsection{Head Dimension, Heads number and Model Dimension}
+
+在多头注意力机制（Multi-Head Attention, MHA）中，有三个核心维度：  
+
+\begin{itemize}
+    \item \textbf{模型维度} $d_{\text{model}}$：整个 embedding 的维度，输入与输出向量的维度均为 $d_{\text{model}}$。
+    \item \textbf{头维度} $d_{\text{head}}$：单个注意力头所使用的子空间维度。
+    \item \textbf{头的数量} $h$：并行的注意力头个数。
+\end{itemize}
+
+三者之间存在如下基本约束关系：
+\[
+    d_{\text{model}} = h \times d_{\text{head}}.
+\]
+
+\paragraph{计算上的直观理解.}~{}
+
+输入序列经过线性变换后得到 $XQ \in \mathbb{R}^{n \times d_{\text{model}}}$
+其中 $n$ 表示序列长度。
+
+随后，我们将其 reshape 为
+$\mathbb{R}^{n \times h \times d_{\text{head}}/h}$
+再转置为$\mathbb{R}^{h \times n \times d_{\text{head}}/h}$
+
+此时 \emph{head 维度可以类比为一个 batch 维度}，从而使得不同的头能够并行计算。
+由于矩阵的总大小保持不变，多头注意力在计算复杂度上与单头注意力几乎一致。
+
+\paragraph{Head-dim 与 Model-dim 的比率.}~{}
+
+我们可以定义一个衡量关系的比率：
+\[
+    \text{Ratio} = \frac{h \times d_{\text{head}}}{d_{\text{model}}}.
+\]
+在标准 Transformer 结构中，通常有 $\text{Ratio} = 1$。
+这一经验法则保证了在参数量和计算开销不增加的情况下，实现并行化和多样化的注意力模式。
 
 
 
+\paragraph{为何不是必须？}~{}
+
+需要注意的是，上述关系并非严格限制。
+理论上我们可以设置
+\[
+    d_{\text{head}} > \frac{d_{\text{model}}}{h},
+\]
+从而让每个头具有更强的表达能力。
+不过，这样做会带来额外的计算和内存开销，因此多数模型仍然遵循 $\text{Ratio}=1$ 的实践规范。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figs/lec3/lec3.23.png}
+  \captionof{figure}{Most models have ratios around 1.}
+\end{figure}
 
 
 
-
-
-
-
-\subsection{Head Dimension and Model Dimension}
-
+\clearpage
 \subsection{Aspect Ratio}
 
+在 Transformer 模型设计中，\emph{aspect ratio} 通常指模型维度与网络深度的比值：
+\[
+    \text{Aspect Ratio} = \frac{d_{\text{model}}}{n_{\text{layer}}}.
+\]
+
+\MarginImageWithNote
+  {figs/lec3/lec3.24.png}
+  {\captionof{figure}{Deep models are hard to parallelize}}
+
+\paragraph{直观理解.}
+\begin{itemize}
+  \item $d_{\text{model}}$ 决定了每一层的宽度，即单层的表示能力；
+  \item $n_{\text{layer}}$ 决定了模型的深度，即堆叠的层数；
+  \item 二者的比例刻画了模型在“宽度”和“深度”上的取舍。
+\end{itemize}
+
+\Remark{
+\textbf{  Extremely deep models are harder to parallelize and have higher latency.
+}}
+
+在增加深度（scaling depth）时会遇到限制。因为深度意味着层与层之间存在严格的顺序依赖，每一层的计算必须等待上一层完成。
+这导致深度扩展无法跨机器或设备进行并行化。相比之下，增加宽度（scaling width）更容易并行化，可以在成千上万台设备上同时分布计算。因此，在计算资源受限的情况下，深度扩展有一定限制。
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figs/lec3/lec3.25.png}
+  \captionof{figure}{Loss Increase vs. Aspect Ratio$(d_{model}/n_{layer})$}
+\end{figure}
+
+\clearpage
 \subsection{Vocabulary Size}
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figs/lec3/lec3.26.png}
+  \captionof{figure}{Vocabulary Examples}
+\end{figure}
+
+Monolingual vocabs don't need to be huge, but multilingual ones do.
+
 \subsection{Regularization}
+
+\QA{Do we need regularization during pretraining?}
+{
+\textbf{Arguments against:}
+\begin{itemize}
+  \item There is \textit{a lot} of data (trillions of tokens), more than parameters.
+  \item SGD only does a single pass on a corpus(hard to memorize)
+\end{itemize}
+}
+
+\MarginNote{
+\Definition{Pretraining}{
+Pre-training is the initial phase of training an LLM where it learns from a large, diverse dataset of often trillions of tokens. The goal here is to develop a broad understanding of language, context, and various types of knowledge. Pre-training is usually MASSIVELY computationally expensive and requires HUGE amounts of data. We're often talking in the millions of dollars when pre-training models. This is one of the primary reasons I am personally skeptical of the idea of open source overtaking commercial models, since most open-weight LLMs still had to come from a corporation making the initial investment in pre-training. Suffice it to say as a beginner, you will not be doing any pre-training.
+}
+
+\Definition{Fine-tuning}{
+Fine-tuning is where you take an already-pre-trained model and further train it on a more specific dataset. This dataset is typically smaller and focused on a particular domain or task. The purpose of fine-tuning is to adapt the model to perform better in specific scenarios or on tasks that were not well covered during pre-training. The new knowledge added during fine-tuning is more about enhancing the model's performance in specific contexts rather than broadly expanding its general knowledge.
+}
+}
+
+
+
+\paragraph{Dropout and weigty decay in practice}~{}
+
+\Definition{Dropout}{
+\emph{Dropout} 是一种常见的正则化方法，在训练过程中以概率 $p$ 随机将部分神经元的输出置零。
+其核心思想是通过“随机失活”防止神经元之间的过度共适应，从而提升模型的泛化能力。
+在测试阶段，所有神经元均被激活，并对输出进行缩放，以保证期望一致。
+}
+
+\Definition{Weight Decay}{
+\emph{Weight Decay} 是通过在损失函数中加入参数范数惩罚项来实现的正则化方法。
+最常见的形式是 $L_2$ 正则化：
+\[
+    L_{\text{reg}} = L_{\text{original}} + \lambda \|\theta\|_2^2,
+\]
+其中 $\theta$ 为模型参数，$\lambda$ 为权重衰减系数。
+这种方法通过抑制参数过大，间接限制了模型容量，降低过拟合风险。
+}
+\clearpage
+
+\MarginImageWithNote
+  {figs/lec3/lec3.27.png}
+  {\captionof{figure}{Dropout and weight decay Examples}}
+
+\textbf{Many older models used dropout during pretraining.\\
+Newer models (except Qwen) rely only on weight decay.
+}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\linewidth]{figs/lec3/lec3.28.png}
+  \captionof{figure}{权重衰减（Weight Decay）在大规模预训练中并不是用来防止过拟合的。
+如图所示，不同的 $\lambda_{WD}$ 对训练损失与验证损失的差距几乎没有影响，
+说明其主要作用并非控制过拟合，而是影响优化动态。}
+\end{figure}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{figs/lec3/lec3.29.png}
+  \captionof{figure}{\textbf{Weight decay interacts with learning rates(cosine schedule)}
+在余弦退火 (cosine LR decay, 左) 和常数学习率 (constant LR, 右) 下，
+不同 $\lambda_{WD}$ 导致了明显不同的收敛轨迹。
+这表明 Weight Decay 更像是一种优化调节器，而非单纯的正则化手段。}
+\end{figure}
+
 
 
 
 \clearpage
 {\chaptoc\noindent\begin{minipage}[inner sep=0,outer sep=0]{0.9\linewidth}\section{Stability tricks}\end{minipage}}
 \\
+\textbf{Recently, lots of attention on stable training.}
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{figs/lec3/lec3.30.png}
+  \captionof{figure}{训练过程中 loss vs. L2 Gradient}
+\end{figure}
+
+上图展示了 OLMo 0424 7B 与 OLMo 2 1124 7B 的训练损失曲线，
+可以看到 OLMo 0424 在相同迭代下达到更低的 loss。
+下图展示了对应的梯度 $L_2$ 范数，
+其中 OLMo 0424 的梯度波动显著更大，
+而 OLMo 2 1124 的梯度曲线更加平滑，
+表明两者在优化稳定性上的显著差异。
 
 \subsection{Output Softmax Stability}
 
-\subsection{Attention Softmax Stability}
+\QA{Why these spikes happen?}
+{\textbf{Be aware of Softmax! }}
+
+\paragraph{原因分析.}
+\begin{itemize}
+    \item \textbf{指数爆炸 (Overflow).}  \\
+    Softmax 会将 logits 通过指数映射：
+    \[
+        p_i = \frac{\exp(z_i)}{\sum_j \exp(z_j)}.
+    \]
+    当某个 $z_i$ 的绝对值过大时（尤其是正数），指数函数会导致数值溢出，
+    使概率分布极度偏斜，从而放大梯度，造成 loss 的尖峰。
+    
+    \item \textbf{分母过小 (Underflow / Division by tiny number).}  \\
+    若所有 $z_j$ 都非常负，$\sum_j \exp(z_j)$ 会接近零，
+    这相当于在 softmax 中出现了近似“除零”操作，
+    使得 $p_i$ 的数值不稳定，进一步导致交叉熵 loss$-\log(p_{y})$ 变得极大，从而出现训练曲线的 spike。
+    
+    \item \textbf{梯度放大.}  \\
+    在反向传播中，softmax 的梯度为 $\nabla_z = p - y$。
+    当 $p$ 接近 $0$ 或 $1$ 时，梯度可能出现剧烈波动，
+    放大了上述数值不稳定性带来的影响。
+\end{itemize}
+
+\clearpage
+\paragraph{缓解方法.}~{}
+
+\subparagraph{Softmax 定义.}
+给定输入 $x$，模型会为词表中的每个候选 $r \in \{1, \dots, |V|\}$ 产生一个未归一化分数（logit） $U_r(x)$。  
+Softmax 将这些 logits 转换为概率分布：
+\[
+    P(r \mid x) = \frac{\exp\big(U_r(x)\big)}{\sum_{r'=1}^{|V|} \exp\big(U_{r'}(x)\big)}.
+\]
+其中：
+\begin{itemize}
+    \item $U_r(x)$：输入 $x$ 对应类别 $r$ 的 logit，通常由线性层或仿射变换得到；
+    \item $|V|$：词表大小；
+    \item $Z(x) = \sum_{r'=1}^{|V|} \exp(U_{r'}(x))$：归一化因子 (partition function)。
+\end{itemize}
+
+\subparagraph{取对数.}
+语言建模通常最大化对数似然：
+\[
+    \log P(r \mid x) = \log \frac{\exp(U_r(x))}{Z(x)}.
+\]
+拆解为：
+\[
+    \log P(r \mid x) = U_r(x) - \log Z(x).
+\]
+
+\subparagraph{原始损失函数.}
+在整个训练数据集 $\{x_i\}$ 上，损失函数为：
+\[
+    L_{\text{orig}} = \sum_i \log P(x_i).
+\]
+
+\subparagraph{加入正则项.}
+为了缓解数值不稳定 (spikes)，可对分母 $Z(x)$ 施加惩罚，鼓励其保持在合理范围：
+\[
+    L = \sum_i \Big[ \log P(x_i) - \alpha \big(\log Z(x_i)\big)^2 \Big],
+\]
+其中 $\alpha$ 为正则化系数。该正则项等价于鼓励 $logZ(x) \approx 0 \rightarrow Z(x) \approx 1$，从而避免溢出或近似除零。
+
+\subparagraph{推导流程图.}
+\begin{center}
+\begin{tikzpicture}[node distance=2cm, auto, >=stealth, thick]
+    \tikzstyle{box} = [rectangle, draw=black, rounded corners, minimum height=1cm, minimum width=3.5cm, align=center]
+
+    % Nodes
+    \node[box] (softmax) {Softmax 定义 \\ $P(r|x) = \frac{e^{U_r(x)}}{\sum_{r'} e^{U_{r'}(x)}}$};
+    \node[box, below of=softmax] (log) {取对数 \\ $\log P(r|x) = U_r(x) - \log Z(x)$};
+    \node[box, below of=log] (loss) {原始损失函数 \\ $L_{\text{orig}} = \sum_i \log P(x_i)$};
+    \node[box, below of=loss] (reg) {加入正则项 \\ $L = \sum_i [\log P(x_i) - \alpha (\log Z(x_i))^2]$};
+
+    % Arrows
+    \draw[->] (softmax) -- (log);
+    \draw[->] (log) -- (loss);
+    \draw[->] (loss) -- (reg);
+\end{tikzpicture}
+\end{center}
+
+\clearpage
+\subsection{Attention Softmax Stability - the QK norm}
+
+\paragraph{\textbf{Motivation}}~{}
+
+在 Transformer 自注意力机制中，注意力权重计算依赖于以下公式：
+\[
+\mathrm{Attention}(Q,K,V) = \mathrm{Softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V,
+\]
+其中 $Q, K \in \mathbb{R}^{n \times d_k}$ 是 query 和 key，$d_k$ 是 head 的维度，通常用于缩放 dot-product。
+
+The key issue of the standard dot-product attention is that: the values going into softmax can get super large, which ends up making the attention too sharp or too “winner-take-all” like below:
+
+\Example{Problem of standard dot-product}
+{
+\begin{align*}
+&\text{softmax}([760, 752, 750])\\
+&= \text{softmax}([12, 4, 2])\\
+&=[0.99962, 0.00034, 0.00005]
+\end{align*}  
+
+Where both the 760 and 12 take most \textbf{“attention”}. That can actually hurt learning, especially when we want the model to spread its attention around a bit more. Also, the softmax only cares about the differences between values instead of their magnitudes.
+
+}
+
+\paragraph{Query-Key Normalization(QK-Norm)}~{}
+
+Instead of using raw dot products between queries and keys, they normalize both vectors using L2 norm (so now we're working with cosine similarity).
+
+\[
+\text{cosine\_similarity}\!\big(\vec{a}, \vec{b}\big) 
+= \frac{\vec{a} \cdot \vec{b}}{\|\vec{a}\|_2 \, \|\vec{b}\|_2}.
+\]
+
+However, the scale in the softmax still somehow matters since the range of cosine similarity is $[-1, 1]$. 
+\textbf{The expressive ability may be insufficient when cosine similarity is combined with Softmax. }
+
+
+Therefore, \textbf{adding a learnable temperature parameter} or something similar is important. The specific operation of the \textbf{QK Norm} is to 
+\begin{itemize}
+  \item first normalize $Q$ and $K$
+  \item then multiply them with a \textbf{learnable scalar weight}.
+\end{itemize}  
+
+That way, the values going into softmax stay in a more useful range: not too big, not too small.
+\paragraph{With QK-Norm}~{}
+
+The attention weights are computed as
+\[
+    \mathrm{Attention}(Q,K,V) 
+    = \mathrm{Softmax} \big( g * \hat Q \hat K^\top \big) V,
+\]
+where $g$ is a learnable scale factor (temperature).  
+Here, $\hat Q$ and $\hat K$ denote $Q$ and $K$ after $\ell_2$-normalization applied along their head dimensions.  
+Because the vector norms are normalized, the denominator $\sqrt{d_k}$ in the standard formulation can be omitted.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{figs/lec3/lec3.31.png}
+  \captionof{figure}{Transformer Architecture with QK norm}
+\end{figure}
+
+\paragraph{Difference with Usual Normalization.}~{}
+
+It is important to distinguish QK-Norm from standard normalization methods such as Batch Normalization or Layer Normalization.  
+These common techniques perform \emph{standardization}, i.e.,
+\[
+    \hat x = \frac{x - \mu}{\sigma},
+\]
+which enforces zero mean and unit variance across a batch or feature dimension, but does not constrain the vector length.  \\
+In contrast, QK-Norm applies true $\ell_2$ normalization:
+\[
+    \hat q = \frac{q}{\|q\|_2}, \qquad \hat k = \frac{k}{\|k\|_2},
+\]
+ensuring each query and key vector has unit norm.  \\
+Thus, the dot product between $\hat q$ and $\hat k$ becomes a cosine similarity, strictly bounded in $[-1,1]$.  \\
+This makes QK-Norm fundamentally different from standard normalization: it directly controls vector magnitude rather than just its statistical distribution.
+
+
 
 \subsection{Logit Soft-Capping}
+
+在注意力机制中，logits 来自 $QK^\top$（或其变体）。若 logits 过大，Softmax 会趋向 one-hot，
+导致梯度爆炸或训练不稳定。为缓解这一问题，可以对 logits 进行 \emph{soft-capping}，
+即通过一个光滑的函数将其压缩到合理的范围，而不是采用硬截断。
+
+
+\Definition{Logit Soft-Capping}{
+We cap logits in each attention layer as well as in the final layer, 
+so that the values remain bounded within $[-\text{soft\_cap}, +\text{soft\_cap}]$.  
+More specifically, we cap the logits with the following function: \\
+Given raw logits $z$, the capping is applied as:
+\[
+    z \;\leftarrow\; \text{soft\_cap} \cdot \tanh\!\left(\frac{z}{\text{soft\_cap}}\right).
+\]
+We set the soft-cap parameter to 50.0 for the self-attention layers and to 30.0 for the final layer.
+}
+
+
+
+\subparagraph{Effect on Attention.}~{}
+
+在 softmax 之前应用 soft-capping：
+\[
+    \mathrm{Attention}(Q,K,V) = \mathrm{Softmax}(z')V,
+\]
+使得 logits 不会无限增大，从而避免了 softmax 输出塌陷为 one-hot 分布，提升训练稳定性。
+
+\subparagraph{Comparison with QK-Norm.}
+\begin{itemize}
+    \item QK-Norm 控制的是输入向量 $Q, K$ 的范数，从源头抑制 logits 爆炸；
+    \item Soft-capping 则直接作用在 logits 上，通过平滑函数限制其幅值；
+    \item 两者可以结合使用（称为 \emph{QK-Norm + SoftCap}），进一步提升稳定性。
+\end{itemize}
+
 
 
 
@@ -809,9 +1239,291 @@ k^{(2)}_n
 
 \subsection{Grouped-Query Attention \& Multi-Query Attention}
 
+
+\paragraph{Motivation.}~{}
+
+In standard multi-head attention, each head has its own set of $Q, K, V$ projections.
+This design is \textbf{expressive} but \textbf{computationally expensive}, 
+as storing and computing with all keys and values becomes costly when scaling to large models.
+
+Let's think about the compute involved for attention:
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.7\linewidth]{figs/lec3/lec3.32.png}
+  \captionof{figure}{Computation in attention}
+\end{figure}
+
+\Remark{
+  \textbf{Total arithmetric operations $(bnd^2)$, total memory accesses($bnd + bhn^2 + d^2$)}
+}
+
+\paragraph{Arithmetic Intensity.}~{}
+
+\Definition{Arithmetic Intensity}{
+Arithmetic Intensity (AI) 指的是 \emph{每次内存访问所能完成的算术运算量}，反映了计算与内存访问之间的平衡关系。  
+
+\[
+  \text{AI} = \frac{\text{\# arithmetic ops}}{\text{\# memory accesses}}
+\]
+
+在矩阵乘法等注意力计算中，AI 的数量级近似为：
+\[
+  \text{AI} \;\sim\; \Big(\tfrac{1}{k} + \tfrac{1}{bn}\Big)^{-1},
+\]
+其中 $k$ 为 head 维度，$b$ 为 batch size，$n$ 为序列长度。  
+这意味着当 $b$ 与 $n$ 较大时，AI 值也随之提高，能够充分利用 GPU 的算力资源。
+}
+
+\clearpage
+\MarginNote{
+\textbf{Matrix Multiplication Complexity.} \\
+Multiplying an $m \times k$ matrix with a $k \times n$ matrix requires
+\[
+\mathcal{O}(mkn)
+\]
+arithmetic operations (dot products of rows and columns). \\
+\medskip
+\emph{Example:} In attention, $Q \in \mathbb{R}^{n \times d}$ and $K^\top \in \mathbb{R}^{d \times n}$, 
+so the complexity is $\mathcal{O}(n \cdot d \cdot n) = \mathcal{O}(nd^2)$ (per batch). \\
+\medskip
+This forms the dominant term in the cost of computing $QK^\top$.
+}
+
+
+\Proposition{Complexity of Multi-Head Attention}{
+Consider a batch of \textit{$b$} sequences, each of length \textit{$n$}, with model dimension \textit{$d$} and \textit{$h$} attention heads.  \\
+The total complexity of multi-head attention can be decomposed into arithmetic operations and memory accesses.
+
+\subparagraph{Arithmetic Operations.}
+The dominant cost arises from computing the attention scores:
+\[
+    \text{Attention}(Q,K,V) = \mathrm{Softmax}(QK^\top)V.
+\]
+Here,
+\[
+    Q \in \mathbb{R}^{b \times n \times d}, 
+    \quad K \in \mathbb{R}^{b \times n \times d}.
+\]
+The matrix multiplication $QK^\top$ has complexity
+\[
+    \mathcal{O}(b \cdot n \cdot d^2) = \mathcal{O}(bnd^2).
+\]
+
+Thus,
+\[
+    \text{Total Arithmetic Operations} = bnd^2.
+\]
+
+\subparagraph{Memory Accesses.}
+The memory cost consists of three parts:
+\begin{itemize}
+    \item \textbf{Input projections:} loading $X \in \mathbb{R}^{b \times n \times d}$ to compute $Q,K,V$, costing $bnd$ accesses.
+    \item \textbf{Attention scores:} for each head, storing $QK^\top \in \mathbb{R}^{n \times n}$, repeated across $h$ heads, giving $bhn^2$ accesses.
+    \item \textbf{Output projection:} the output is mapped back to $\mathbb{R}^{d}$ via $W^O \in \mathbb{R}^{hd \times d}$, requiring $d^2$ accesses.
+\end{itemize}
+Summing these,
+\[
+    \text{Total Memory Accesses} = bnd + bhn^2 + d^2.
+\]
+
+\subparagraph{Conclusion.}
+The computational and memory complexity of multi-head attention are:
+\[
+    \text{Arithmetic Ops} = bnd^2, \qquad
+    \text{Memory Accesses} = bnd + bhn^2 + d^2.
+\]
+}
+
+\QA{What about the \textit{incremental case} when we generate text?}
+{
+\\
+\textbf{Key difference:} During autoregressive generation, the model cannot parallelize the computation across all tokens.\\
+Instead, tokens must be generated \emph{step by step}, each conditioned on the previously generated context.
+
+\subparagraph{Challenge.}~{}
+
+Naively re-computing attention at every step would require re-processing all past tokens,
+leading to a quadratic time cost across the entire generation process.
+
+\subparagraph{Solution: KV Cache.}~{}
+
+To avoid redundant computation, we maintain a \emph{key-value (KV) cache}:
+{\color{tred}
+\begin{itemize}
+    \item At each generation step, newly computed $K,V$ vectors are appended to the cache.
+    \item The current query $Q_t$ only attends to cached $(K,V)$ pairs from all past steps.
+    \item This transforms the per-step cost from $\mathcal{O}(t^2)$ re-computation into $\mathcal{O}(t)$ incremental updates.
+\end{itemize}
+}
+
+\subparagraph{Summary.}~{}
+
+In incremental generation, the key difference is the loss of full parallelism.\\
+The KV cache is the practical mechanism that enables efficient autoregressive decoding by
+reusing past $K,V$ representations rather than recomputing them.
+}
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1\linewidth]{figs/lec3/lec3.33.png}
+  \captionof{figure}{KV Cache示意图，上一排是without KV cache, 下一排是with KV Cache.}
+\end{figure}
+
+\clearpage
+\QA{What's the incremental arithmetic intensity?}
+{{\color{dblue} The core idea: With KV cache, Ks and Vs are generated incrementally as each token.}\\
+
+The system only multiply the absolute necessary keys and values, since all of the intermediate computations are saved. There is no waste of any matrix or vector multiplies.\\
+
+\[
+\text{Arithmetic ops:} \quad b n d^{2}
+\]
+
+\[
+\text{Memory accesses:} \quad b n^{2} d \;+\; n d^{2}
+\]
+
+
+其中：
+- $b n^{2} d$: 读写/生成整张 $n \times n$ 的注意力相关数据（随序列长平方增长，且每项含 $d$）。\\
+- $n d^{2}$: QKV 与输出投影的读写（与模型维度平方相关）。
+
+\[
+\Rightarrow \quad 
+AI_{\text{base}}
+= \frac{b n d^{2}}{b n^{2} d + n d^{2}}
+= \Theta \!\left( \left( \tfrac{n}{d} + \tfrac{1}{b} \right)^{-1} \right)
+\]
+need large batches + short seq length(n) or big model dimension (d)
+
+\textbf{这其实不符合我们的期望}
+}
+
+\paragraph{MQA（Multi-Query Attention）}~{}
+
+\textbf{{\color{tred} Key idea – have multiple queries, but just one dimension for keys and values.
+That will have much fewer items to move in and out of memory(KV Cache.)}
+}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1\linewidth]{figs/lec3/lec3.34.png}
+  \captionof{figure}{MQA 示意图}
+\end{figure}
+
+\subparagraph{MQA 的思想}~{}
+
+多个 Query head 共享同一份 Key/Value。具体来说：
+
+\begin{itemize}
+  \item 每个 head 仍然有自己独立的 $Q$ 矩阵（因此表达能力保留）。
+  \item 但 $K, V$ 投影矩阵只有一份（或极少数几份）。
+\end{itemize}
+
+\QA{MQA arithmetic intensity}{
+\[
+\text{Arithmetic ops:} \quad b n d^{2}
+\]
+
+\[
+\text{Memory accesses:} \quad b n d \;+\; b n^{2} k \;+\; n d^{2}
+\]
+
+其中：$b n d$ 表示序列流动，$b n^{2} k$ 表示注意力读写（$k \ll d$），$n d^{2}$ 表示投影读写。
+
+\[
+\Rightarrow \quad 
+AI_{\text{MQA}}
+= \frac{b n d^{2}}{b n d + b n^{2} k + n d^{2}}
+= \Theta \!\left( \left( \tfrac{1}{d} + \tfrac{n}{d h} + \tfrac{1}{b} \right)^{-1} \right)
+\]
+}
+
+
+
+
+\paragraph{GQA（Grouped-Query Attention）—按 slide 的总量}
+
+\[
+\text{Arithmetic ops:} \quad b n d^{2}
+\]
+
+\[
+\text{Memory accesses:} \quad b n d \;+\; b n^{2} \tfrac{d}{g} \;+\; n d^{2}
+\]
+
+其中：
+\begin{itemize}
+  \item $b n d$: 序列流动过程中的必要读写。
+  \item  $b n^{2} \tfrac{d}{g}$: 注意力相关数据的读写。在 GQA 中，$g$ 个 Query head 共享一份 $K/V$，等效于把 $d$ 缩小为 $d/g$。
+  \item  $n d^{2}$: QKV 与输出投影的读写。
+\end{itemize}
+\[
+\Rightarrow \quad 
+AI_{\text{GQA}}
+= \frac{b n d^{2}}{b n d + b n^{2} \tfrac{d}{g} + n d^{2}}
+= \Theta \!\left( \left( \tfrac{1}{d} + \tfrac{n}{d \cdot g} + \tfrac{1}{b} \right)^{-1} \right)
+\]
+
+
+直觉：相比基线，GQA 通过 $g$ 个 head 共享 K/V 缓存，使内存访问量从 $b n^{2} d$ 降低为 $b n^{2} d/g$，因此 $AI$ 得到提升，效果介于基线与 MQA 之间。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1\linewidth]{figs/lec3/lec3.35.png}
+  \captionof{figure}{GQA示意图}
+\end{figure}
+
+
+\clearpage
 \subsection{Sparse/Sliding Window Attention}
 
-\subsection{Hybrid Approaches}
+\Definition{Sparse/Sliding Window Attention}{
+传统的全局注意力计算复杂度为 $O(n^{2})$，在长序列下代价极高。  
+Sparse/Sliding Window Attention 的核心思想是：  
+\begin{itemize}
+\item 每个 token 只与一个局部窗口（大小 $w \ll n$）中的相邻 token 进行注意力计算；  \\
+\item  少量特殊位置（如段首、CLS token）可与全局交互，从而维持一定的全局建模能力。  
+\end{itemize}
+
+其复杂度下降为：
+\[
+\text{Arithmetic ops: } O(b n w d), 
+\quad
+\text{Memory: } O(b n w d + n d^{2}).
+\]
+
+优点：显著减少长序列下的算力与内存需求；  \\
+缺点：丢失了完整的全局交互，需要额外机制弥补。
+}
+
+\Remark{Build sparse / structured attention that trades off expressiveness vs. runtime.}{}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figs/lec3/lec3.36.png}
+  \captionof{figure}{Sparse / Sliding window attention 示意图}
+\end{figure}
+
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figs/lec3/lec3.37.png}
+  \captionof{figure}{Sliding window attention 示意图. \textbf{Just use the main part of the strided pattern.}}
+\end{figure}
+
+\clearpage
+\paragraph{Current standard trick - interleave 'full' and 'LR' attention.}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=1\linewidth]{figs/lec3/lec3.38.png}
+  \captionof{figure}{Standard trick 示意图}
+\end{figure}
+
+
 
 % 图 1：OPT FLOPs 构成
 % \MarginImageWithNote

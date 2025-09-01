@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  22 AUG 2025 10:42
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.3.8)  31 AUG 2025 21:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -3600,4 +3600,1080 @@ Underfull \hbox (badness 10000) in paragraph at lines 87--87
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <8> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 791.
 Requested font "[lmmonolt10-bold]:" at 8.0pt
- -> /usr/local/texlive/2025/texmf-dist/fonts/ope
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmmonolt10-bold.otf
+
+Underfull \hbox (badness 10000) in paragraph at lines 803--803
+[]\TU/lmtt/m/n/10 nn.init.trunc_normal_(x, mean=0, std=1, a=-2, b=2) # \TU/NotoSansCJKSC(0)/m/n/10 截 断 在
+ []
+
+
+
+[37
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 855--855
+\TU/lmtt/m/n/8 assert x.dtype ==
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 855--855
+\TU/lmtt/m/n/8 torch.float32 # \TU/NotoSansCJKSC(0)/m/n/8 默 认 类
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 855--855
+\TU/lmtt/m/n/8 assert x.numel() == 4 * 8
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 855--855
+\TU/lmtt/m/n/8 assert x.element_size() ==
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 855--855
+\TU/lmtt/m/n/8 assert get_memory_usage(x)
+ []
+
+File: figs/lec2/lec2.27.png Graphic file (type bmp)
+<figs/lec2/lec2.27.png>
+File: figs/lec2/lec2.28.jpeg Graphic file (type bmp)
+<figs/lec2/lec2.28.jpeg>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 885.
+See the caption package documentation for explanation.
+
+
+
+[38]
+File: figs/lec2/lec2.29.png Graphic file (type bmp)
+<figs/lec2/lec2.29.png>
+File: figs/lec2/lec2.30.png Graphic file (type bmp)
+<figs/lec2/lec2.30.png>
+File: figs/lec2/lec2.31.png Graphic file (type bmp)
+<figs/lec2/lec2.31.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 957.
+See the caption package documentation for explanation.
+
+
+
+[39
+
+]
+File: figs/lec2/lec2.32.png Graphic file (type bmp)
+<figs/lec2/lec2.32.png>
+
+Overfull \hbox (36.70541pt too wide) in paragraph at lines 987--1001
+ [][] 
+ []
+
+
+
+[40
+
+]
+Overfull \hbox (2.47041pt too wide) in paragraph at lines 1006--1006
+|[]\TU/TimesNewRoman(0)/b/sc/14.4 Mixed Precision Training [][][Micikevicius et al., 2017][][]| 
+ []
+
+File: figs/lec2/lec2.34.png Graphic file (type bmp)
+<figs/lec2/lec2.34.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1034.
+See the caption package documentation for explanation.
+
+File: figs/lec2/lec2.33.png Graphic file (type bmp)
+<figs/lec2/lec2.33.png>
+
+
+[41
+
+]
+File: figs/lec2/lec2.36.png Graphic file (type bmp)
+<figs/lec2/lec2.36.png>
+
+Overfull \hbox (35.00214pt too wide) in paragraph at lines 1072--1073
+ [][] 
+ []
+
+File: figs/lec2/lec2.38.png Graphic file (type bmp)
+<figs/lec2/lec2.38.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1096.
+See the caption package documentation for explanation.
+
+File: figs/lec2/lec2.37.png Graphic file (type bmp)
+<figs/lec2/lec2.37.png>
+
+
+[42]
+Overfull \hbox (66.20483pt too wide) detected at line 1134
+[][] [] [] [][][][][][] [] [][][][][][]  []  [][]  []  [][]
+ []
+
+File: figs/lec2/lec2.35.png Graphic file (type bmp)
+<figs/lec2/lec2.35.png>
+File: figs/lec2/lec2.39.png Graphic file (type bmp)
+<figs/lec2/lec2.39.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 1165.
+See the caption package documentation for explanation.
+
+
+
+[43
+
+]
+Package marginnote Info: Margin note 44.1 is on absolute page 44 on input line 1180.
+ (/Users/arthuryang/Desktop/latexNotebook/out/main.ptc
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+ [][] [][]\TU/TimesNewRoman(0)/m/n/8 Matrix Multiplica- 
+ []
+
+
+Underfull \hbox (badness 5345) in paragraph at lines 107--107
+ [][] [][]\TU/TimesNewRoman(0)/m/n/8 Einsum = Named 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
+ \TU/TimesNewRoman(0)/m/n/8 MatMul 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
+ \TU/TimesNewRoman(0)/m/n/8 with 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--107
+ \TU/TimesNewRoman(0)/m/n/8 Book- 
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 109--109
+ |\TU/NotoSansCJKSC(0)/m/n/8 （展 开\TU/TimesNewRoman(0)/m/n/8 /\TU/NotoSansCJKSC(0)/m/n/8 重 
+ []
+
+
+Underfull \hbox (badness 3098) in paragraph at lines 109--109
+ \TU/NotoSansCJKSC(0)/m/n/8 排 \TU/TimesNewRoman(0)/m/n/8 + \TU/NotoSansCJKSC(0)/m/n/8 线 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 110--110
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/8 Tensor Operations 
+ []
+
+)
+Package marginnote Info: xpos seems to be 205.50787pt on input line 1180.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2024/09/23 1.10c listings language file
+)
+Requested font "[lmmono9-regular]:" at 9.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmmono9-regular.otf
+File: figs/lec2/lec2.40.png Graphic file (type bmp)
+<figs/lec2/lec2.40.png>
+
+
+[44
+
+]
+File: figs/lec2/lec2.41.png Graphic file (type bmp)
+<figs/lec2/lec2.41.png>
+
+Overfull \hbox (19.65393pt too wide) detected at line 1287
+[][][][][][][][][][][][][][] [][]  []  [] [] [][][] [][] [][]
+ []
+
+
+
+Requested font "Times New Roman/OT:script=latn;language=dflt;mapping=tex-text;" at 9.0pt
+ -> /System/Library/Fonts/Supplemental/Times New Roman.ttf
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+[45
+
+]
+
+[46]
+
+[47]
+
+[48
+
+]
+
+[49
+
+]
+Overfull \hbox (1.7498pt too wide) in paragraph at lines 1629--1629
+\TU/lmtt/m/n/10 get_promised_flop_per_sec() 
+ []
+
+
+
+[50
+
+]
+
+[51
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1711--1715
+
+ []
+
+Requested font "[Erewhon-Math.otf]/OT:script=math;language=dflt;+ssty=1;" at 3.84998pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon-math/Erewhon-Math.otf
+Requested font "[Erewhon-Math.otf]/OT:script=math;language=dflt;+ssty=1;" at 2.75pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon-math/Erewhon-Math.otf
+Requested font "[Erewhon-Regular.otf]/OT:script=latn;language=dflt;" at 3.84998pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Regular.otf
+Requested font "[Erewhon-Regular.otf]/OT:script=latn;language=dflt;" at 2.75pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Regular.otf
+Requested font "cmmi5" at 3.84998pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
+Requested font "cmmi5" at 2.75pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi5.tfm
+Requested font "[Erewhon-Math.otf]/OT:script=math;language=dflt;+ssty=1;" at 3.85037pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon-math/Erewhon-Math.otf
+Requested font "[Erewhon-Math.otf]/OT:script=math;language=dflt;+ssty=1;" at 2.75029pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon-math/Erewhon-Math.otf
+Requested font "[Erewhon-Math.otf]/OT:script=math;language=dflt;+ssty=1;" at 3.84956pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon-math/Erewhon-Math.otf
+Requested font "[Erewhon-Math.otf]/OT:script=math;language=dflt;+ssty=1;" at 2.7497pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon-math/Erewhon-Math.otf
+Requested font "[Erewhon-Bold.otf]/OT:script=latn;language=dflt;" at 3.84998pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Bold.otf
+Requested font "[Erewhon-Bold.otf]/OT:script=latn;language=dflt;" at 2.75pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Bold.otf
+Requested font "[Cabin-Regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;" at 3.84998pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/impallari/cabin/Cabin-Regular.otf
+Requested font "[Cabin-Regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;" at 2.75pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/impallari/cabin/Cabin-Regular.otf
+Requested font "msam5" at 3.84998pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+Requested font "msam5" at 2.75pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+Requested font "msbm5" at 3.84998pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+Requested font "msbm5" at 2.75pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+
+
+[52
+
+]
+Package marginnote Info: Margin note 53.1 is on absolute page 53 on input line 1776.
+Package marginnote Info: xpos seems to be 42.0pt on input line 1776.
+ (/Users/arthuryang/Desktop/latexNotebook/out/main.ptc
+Underfull \hbox (badness 5533) in paragraph at lines 126--126
+ \TU/TimesNewRoman(0)/m/n/8 & Parameters Ini- 
+ []
+
+
+Underfull \hbox (badness 1953) in paragraph at lines 128--128
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/8 Custom Deep Lin- 
+ []
+
+)
+
+[53
+
+]
+
+[54
+
+]
+
+[55]
+Package marginnote Info: Margin note 56.1 is on absolute page 56 on input line 1937.
+ (/Users/arthuryang/Desktop/latexNotebook/out/main.ptc
+Underfull \hbox (badness 5331) in paragraph at lines 137--137
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/8 Training Loop And Best 
+ []
+
+
+Underfull \hbox (badness 8056) in paragraph at lines 138--138
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/8 Data Loading for 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/8 Batch Sampling 
+ []
+
+)
+Package marginnote Info: xpos seems to be 205.50787pt on input line 1937.
+Requested font "Times New Roman/B/OT:script=latn;language=dflt;mapping=tex-text;" at 9.0pt
+ -> /System/Library/Fonts/Supplemental/Times New Roman Bold.ttf
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Requested font "Times New Roman/I/OT:script=latn;language=dflt;mapping=tex-text;" at 9.0pt
+ -> /System/Library/Fonts/Supplemental/Times New Roman Italic.ttf
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/m/it/9'.
+(microtype)             Ignoring protrusion settings for this character.
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1994.
+Requested font "[lmmonolt10-bold]:" at 9.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/lm/lmmonolt10-bold.otf
+
+
+[56
+
+]
+Overfull \hbox (4.12576pt too wide) in paragraph at lines 2051--2053
+\TU/lmtt/m/n/10 x = x.pin_memory(); x.to(device, non_blocking=True) \TU/TimesNewRoman(0)/m/sc/10 for faster async
+ []
+
+
+
+[57
+
+]
+
+[58]
+
+[59
+
+]
+Overfull \vbox (97.7034pt too high) has occurred while \output is active []
+
+
+
+[60]
+Overfull \hbox (88.85919pt too wide) detected at line 2235
+[] [] [] [] [][] [] [] [] [] [] [][]
+ []
+
+
+
+[61]
+
+[62
+
+]
+Overfull \hbox (5.71167pt too wide) in paragraph at lines 2327--2328
+[]\TU/NotoSansCJKSC(0)/b/n/10 评 估\TU/TimesNewRoman(0)/b/n/10 /\TU/NotoSansCJKSC(0)/b/n/10 推 理：|  \TU/NotoSansCJKSC(0)/m/n/10 加 载 后 做 评 估 请 调 用 \TU/lmtt/m/n/10 model.eval()\TU/NotoSansCJKSC(0)/m/n/10 ；|  继 续 训 练 则 \TU/lmtt/m/n/10 model.train()\TU/NotoSansCJKSC(0)/m/n/10 。| 
+ []
+
+) (./Lecture3.tex
+
+[63
+
+]
+
+[64
+
+]
+Lecture 3.
+
+Overfull \hbox (4.68942pt too wide) in paragraph at lines 4--4
+[][] 
+ []
+
+
+Overfull \hbox (157.9985pt too wide) in paragraph at lines 4--4
+|[][]| 
+ []
+
+Package marginnote Info: Margin note 65.1 is on absolute page 65 on input line 10.
+Package marginnote Info: xpos seems to be 42.0pt on input line 10.
+(/Users/arthuryang/Desktop/latexNotebook/out/main.ptc
+Underfull \hbox (badness 10000) in paragraph at lines 160--160
+ \TU/TimesNewRoman(0)/m/n/8 norm in 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--160
+ \TU/TimesNewRoman(0)/m/n/8 Trans- 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+ [][] [][]\TU/TimesNewRoman(0)/m/n/8 LayerNorm vs. 
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 10--12
+
+ []
+
+File: figs/lec3/lec3.01.png Graphic file (type bmp)
+<figs/lec3/lec3.01.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 27--28
+
+ []
+
+Requested font "[Erewhon-Math.otf]/OT:script=math;language=dflt;" at 9.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon-math/Erewhon-Math.otf
+Package microtype Info: Character `\textquoteleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquoteright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquotedblleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquotedblright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\AE ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\quotesinglbase ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\quotedblbase ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guilsinglleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guilsinglright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guillemotleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guillemotright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textexclamdown ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquestiondown ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(1)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Requested font "[Erewhon-Regular.otf]/OT:script=latn;language=dflt;" at 9.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Regular.otf
+Requested font "cmmi9" at 9.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
+LaTeX Font Info:    Font shape `TU/Erewhon-Math.otf(2)/m/n' will be
+(Font)              scaled to size 9.00096pt on input line 28.
+Requested font "[Erewhon-Math.otf]/OT:script=math;language=dflt;" at 9.00096pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon-math/Erewhon-Math.otf
+Package microtype Info: Character `\textquoteleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquoteright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquotedblleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquotedblright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\AE ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\quotesinglbase ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\quotedblbase ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guilsinglleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guilsinglright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guillemotleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guillemotright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textexclamdown ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquestiondown ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(2)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+LaTeX Font Info:    Font shape `TU/Erewhon-Math.otf(3)/m/n' will be
+(Font)              scaled to size 8.99904pt on input line 28.
+Requested font "[Erewhon-Math.otf]/OT:script=math;language=dflt;" at 8.99904pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon-math/Erewhon-Math.otf
+Package microtype Info: Character `\textquoteleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquoteright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquotedblleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquotedblright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\AE ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\quotesinglbase ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\quotedblbase ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guilsinglleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guilsinglright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guillemotleft ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\guillemotright ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textexclamdown ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `\textquestiondown ' is missing
+(microtype)             in font `\TU/Erewhon-Math.otf(3)/m/n/9'.
+(microtype)             Ignoring protrusion settings for this character.
+Requested font "[Erewhon-Bold.otf]/OT:script=latn;language=dflt;" at 9.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Bold.otf
+LaTeX Font Info:    Font shape `TU/Cabin(1)/m/n' will be
+(Font)              scaled to size 9.0pt on input line 28.
+Requested font "[Cabin-Regular.otf]/OT:script=latn;language=dflt;mapping=tex-text;" at 9.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/impallari/cabin/Cabin-Regular.otf
+Requested font "msam10" at 9.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+Requested font "msbm10" at 9.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+
+Underfull \hbox (badness 10000) in paragraph at lines 31--32
+
+ []
+
+Requested font "[Erewhon-Italic.otf]/OT:script=latn;language=dflt;" at 9.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Italic.otf
+Requested font "[Erewhon-Italic.otf]/OT:script=latn;language=dflt;" at 6.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Italic.otf
+Requested font "[Erewhon-Italic.otf]/OT:script=latn;language=dflt;" at 5.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Italic.otf
+
+Overfull \hbox (8.02957pt too wide) detected at line 35
+[]
+ []
+
+Requested font "[Erewhon-Italic.otf]/OT:script=latn;language=dflt;" at 10.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Italic.otf
+Requested font "[Erewhon-Italic.otf]/OT:script=latn;language=dflt;" at 7.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Italic.otf
+Requested font "[Erewhon-Italic.otf]/OT:script=latn;language=dflt;" at 5.5pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Italic.otf
+File: figs/lec3/lec3.02.png Graphic file (type bmp)
+<figs/lec3/lec3.02.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 45.
+See the caption package documentation for explanation.
+
+
+
+[65]
+File: figs/lec3/lec3.03.png Graphic file (type bmp)
+<figs/lec3/lec3.03.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 62.
+See the caption package documentation for explanation.
+
+File: figs/lec3/lec3.04.png Graphic file (type bmp)
+<figs/lec3/lec3.04.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 100--100
+[][]\TU/TimesNewRoman(0)/b/n/8 Definition 17:[] []Learning Rate
+ []
+
+Requested font "[Erewhon-Italic.otf]/OT:script=latn;language=dflt;" at 8.0pt
+ -> /usr/local/texlive/2025/texmf-dist/fonts/opentype/public/erewhon/Erewhon-Italic.otf
+
+Overfull \hbox (15.87587pt too wide) detected at line 100
+[][][][][] [] [] [][][][]  [] [] [][][]
+ []
+
+File: figs/lec3/lec3.05.png Graphic file (type bmp)
+<figs/lec3/lec3.05.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 121.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 1019) in paragraph at lines 121--121
+[]\TU/TimesNewRoman(0)/b/n/10 Figure 3.5: |[]\TU/TimesNewRoman(0)/m/sc/10 Performance of the
+ []
+
+
+
+[66
+
+]
+File: figs/lec3/lec3.07.png Graphic file (type bmp)
+<figs/lec3/lec3.07.png>
+
+
+[67
+
+]
+File: figs/lec3/lec3.06.png Graphic file (type bmp)
+<figs/lec3/lec3.06.png>
+File: figs/lec3/lec3.08.png Graphic file (type bmp)
+<figs/lec3/lec3.08.png>
+File: figs/lec3/lec3.09.png Graphic file (type bmp)
+<figs/lec3/lec3.09.png>
+
+
+[68
+
+]
+File: figs/lec3/lec3.10.png Graphic file (type bmp)
+<figs/lec3/lec3.10.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--224
+
+ []
+
+
+
+[69
+
+]
+File: figs/lec3/lec3.11.png Graphic file (type bmp)
+<figs/lec3/lec3.11.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 278.
+See the caption package documentation for explanation.
+
+Requested font "Times New Roman/BI/OT:script=latn;language=dflt;mapping=tex-text;" at 8.0pt
+ -> /System/Library/Fonts/Supplemental/Times New Roman Bold Italic.ttf
+Package microtype Info: Character `textendash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/it/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textemdash ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/it/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/it/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquoteright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/it/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblleft ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/it/8'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textquotedblright ' is missing
+(microtype)             in font `TU/TimesNewRoman(0)/b/it/8'.
+(microtype)             Ignoring protrusion settings for this character.
+File: figs/lec3/lec3.12.png Graphic file (type bmp)
+<figs/lec3/lec3.12.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 283.
+See the caption package documentation for explanation.
+
+File: figs/lec3/lec3.13.png Graphic file (type bmp)
+<figs/lec3/lec3.13.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 292.
+See the caption package documentation for explanation.
+
+File: figs/lec3/lec3.14.png Graphic file (type bmp)
+<figs/lec3/lec3.14.png>
+
+Underfull \vbox (badness 3219) has occurred while \output is active []
+
+
+
+[70
+
+]
+
+[71]
+File: figs/lec3/lec3.15.png Graphic file (type bmp)
+<figs/lec3/lec3.15.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 326.
+See the caption package documentation for explanation.
+
+File: figs/lec3/lec3.16.png Graphic file (type bmp)
+<figs/lec3/lec3.16.png>
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 390.
+See the caption package documentation for explanation.
+
+
+Underfull \hbox (badness 2671) in paragraph at lines 390--390
+[]\TU/TimesNewRoman(0)/b/n/10 Figure 3.16: |[]\TU/TimesNewRoman(0)/m/sc/10 GLUE Language-
+ []
+
+
+
+[72
+
+]
+File: figs/lec3/lec3.17.png Graphic file (type bmp)
+<figs/lec3/lec3.17.png>
+
+Underfull \hbox (badness 1867) in paragraph at lines 443--446
+[]\TU/TimesNewRoman(0)/m/n/9 Normal Transformer blocks are \TU/TimesNewRoman(0)/m/it/9 serial\TU/TimesNewRoman(0)/m/n/9 : they
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 443--446
+
+ []
+
+
+
+[73
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 507--517
+
+ []
+
+
+
+[74
+
+]
+
+[75]
+File: figs/lec3/lec3.18.png Graphic file (type bmp)
+<figs/lec3/lec3.18.png>
+
+Overfull \hbox (39.83908pt too wide) detected at line 700
+[][] [] [] [][][]
+ []
+
+
+
+[76]
+File: figs/lec3/lec3.19.png Graphic file (type bmp)
+<figs/lec3/lec3.19.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 774.
+See the caption package documentation for explanation.
+
+
+
+[77]
+Package marginnote Info: Margin note 78.1 is on absolute page 78 on input line 778.
+ (/Users/arthuryang/Desktop/latexNotebook/out/main.ptc
+Underfull \hbox (badness 10000) in paragraph at lines 182--182
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/8 Feedforward 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 185--185
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/8 Head Dimension, 
+ []
+
+)
+Package marginnote Info: xpos seems to be 205.50787pt on input line 778.
+
+Underfull \hbox (badness 10000) in paragraph at lines 778--780
+
+ []
+
+File: figs/lec3/lec3.20.png Graphic file (type bmp)
+<figs/lec3/lec3.20.png>
+
+
+[78
+
+]
+File: figs/lec3/lec3.21.png Graphic file (type bmp)
+<figs/lec3/lec3.21.png>
+File: figs/lec3/lec3.22.png Graphic file (type bmp)
+<figs/lec3/lec3.22.png>
+
+
+[79]
+Overfull \hbox (2.6531pt too wide) in paragraph at lines 847--847
+|[]\TU/TimesNewRoman(0)/b/sc/14.4 Head Dimension, Heads number and Model Dimen-
+ []
+
+File: figs/lec3/lec3.23.png Graphic file (type bmp)
+<figs/lec3/lec3.23.png>
+
+
+[80
+
+]
+File: figs/lec3/lec3.24.png Graphic file (type bmp)
+<figs/lec3/lec3.24.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 914.
+See the caption package documentation for explanation.
+
+File: figs/lec3/lec3.25.png Graphic file (type bmp)
+<figs/lec3/lec3.25.png>
+
+
+[81
+
+]
+File: figs/lec3/lec3.26.png Graphic file (type bmp)
+<figs/lec3/lec3.26.png>
+
+Underfull \hbox (badness 1577) in paragraph at lines 966--966
+\TU/TimesNewRoman(0)/m/n/8 training is usually MASSIVELY
+ []
+
+
+Underfull \hbox (badness 4353) in paragraph at lines 966--966
+\TU/TimesNewRoman(0)/m/n/8 quires HUGE amounts of data.
+ []
+
+
+Underfull \hbox (badness 1603) in paragraph at lines 966--966
+\TU/TimesNewRoman(0)/m/n/8 ther train it on a more specific
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 966--966
+\TU/TimesNewRoman(0)/m/n/8 well covered during pre-training.
+ []
+
+
+
+[82
+
+]
+File: figs/lec3/lec3.27.png Graphic file (type bmp)
+<figs/lec3/lec3.27.png>
+
+
+Package caption Warning: The option `hypcap=true' will be ignored for this
+(caption)                particular \caption on input line 992.
+See the caption package documentation for explanation.
+
+File: figs/lec3/lec3.28.png Graphic file (type bmp)
+<figs/lec3/lec3.28.png>
+File: figs/lec3/lec3.29.png Graphic file (type bmp)
+<figs/lec3/lec3.29.png>
+
+
+[83
+
+]
+Package marginnote Info: Margin note 84.1 is on absolute page 84 on input line 1017.
+ (/Users/arthuryang/Desktop/latexNotebook/out/main.ptc
+Underfull \hbox (badness 10000) in paragraph at lines 205--205
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/8 Attention Softmax 
+ []
+
+
+Underfull \hbox (badness 1152) in paragraph at lines 205--205
+ \TU/TimesNewRoman(0)/m/n/8 Stability - the QK 
+ []
+
+)
+Package marginnote Info: xpos seems to be 205.50787pt on input line 1017.
+File: figs/lec3/lec3.30.png Graphic file (type bmp)
+<figs/lec3/lec3.30.png>
+
+
+[84
+
+]
+
+[85
+
+]
+File: figs/lec3/lec3.31.png Graphic file (type bmp)
+<figs/lec3/lec3.31.png>
+
+
+[86
+
+]
+
+[87]
+
+[88]
+Package marginnote Info: Margin note 89.1 is on absolute page 89 on input line 1237.
+Package marginnote Info: xpos seems to be 42.0pt on input line 1237.
+ (/Users/arthuryang/Desktop/latexNotebook/out/main.ptc
+Underfull \hbox (badness 10000) in paragraph at lines 216--216
+ [][] [][][]\TU/TimesNewRoman(0)/m/n/8 Grouped-Query 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--216
+ \TU/TimesNewRoman(0)/m/n/8 Attention & 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--216
+ \TU/TimesNewRoman(0)/m/n/8 Multi-Query 
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 1237--1239
+
+ []
+
+File: figs/lec3/lec3.32.png Graphic file (type bmp)
+<figs/lec3/lec3.32.png>
+
+
+[89
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[90
+
+]
+File: figs/lec3/lec3.33.png Graphic file (type bmp)
+<figs/lec3/lec3.33.png>
+
+
+[91]
+Underfull \hbox (badness 10000) in paragraph at lines 1403--1403
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1403--1403
+
+ []
+
+File: figs/lec3/lec3.34.png Graphic file (type bmp)
+<figs/lec3/lec3.34.png>
+
+
+[92
+
+]
+File: figs/lec3/lec3.35.png Graphic file (type bmp)
+<figs/lec3/lec3.35.png>
+
+
+[93]
+Underfull \hbox (badness 10000) in paragraph at lines 1501--1501
+
+ []
+
+File: figs/lec3/lec3.36.png Graphic file (type bmp)
+<figs/lec3/lec3.36.png>
+File: figs/lec3/lec3.37.png Graphic file (type bmp)
+<figs/lec3/lec3.37.png>
+
+
+[94
+
+]
+File: figs/lec3/lec3.38.png Graphic file (type bmp)
+<figs/lec3/lec3.38.png>
+)
+\tf@ptc=\write4
+\openout4 = `main.ptc'.
+
+
+
+[95
+
+] (/Users/arthuryang/Desktop/latexNotebook/out/main.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2022/08/05>
+ ***********
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 56150 strings out of 473832
+ 1324266 string characters out of 5729482
+ 2386182 words of memory out of 5000000
+ 78134 multiletter control sequences out of 15000+600000
+ 583709 words of font info for 211 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 110i,16n,124p,1001b,1900s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on /Users/arthuryang/Desktop/latexNotebook/out/main.pdf (95 pages).
